@@ -18,6 +18,7 @@
 #define MAP_TEMP 4
 
 
+#define FULL_LAND (FLOOR_HEIGHT - 2) * (FLOOR_WIDTH - 2)
 
 
 

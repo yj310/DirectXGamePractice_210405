@@ -6,6 +6,7 @@ using namespace std;
 FirstGamePage::FirstGamePage()
 {
 	player = new Player();
+	myLand = 0;
 
 	backgroundTex = new LPDIRECT3DTEXTURE9();
 	D3DXCreateTextureFromFileExA(
@@ -88,6 +89,11 @@ FirstGamePage::FirstGamePage()
 	D3DXCreateSprite(DXUTGetD3D9Device(), &spr);
 
 
+	
+	D3DXCreateFont(DXUTGetD3D9Device(), 30, 0, FW_BOLD, 1, FALSE, DEFAULT_CHARSET,
+		OUT_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
+		L"Arial", &font);
+	
 
 
 	MapUpdate();
@@ -100,6 +106,7 @@ FirstGamePage::~FirstGamePage()
 	(*backgroundTex)->Release();
 	(*floorTex)->Release();
 	(*maskTex)->Release();
+	font->Release();
 	spr->Release();
 
 	delete player;
@@ -268,6 +275,13 @@ void FirstGamePage::GetLand()
 	}
 
 	Bordering();
+
+	myLand = 0;
+	for (int i = 0; i < FLOOR_PIXEL; ++i)
+	{
+		if (map[i] == MAP_VISITED)
+			myLand++;
+	}
 }
 
 void FirstGamePage::PlayerMove(D3DXVECTOR2 dir)
@@ -362,6 +376,7 @@ void FirstGamePage::Update()
 	KeyInput();
 	MapUpdate();
 }
+#include <atlconv.h>
 
 void FirstGamePage::Render()
 {
@@ -379,5 +394,20 @@ void FirstGamePage::Render()
 
 
 	player->Render();
+
+	char text[] = "가나다라마";
+	float score = 100.512025845;
+	char cscore[256];
+	sprintf(cscore, "%.1f", score);
+
+	USES_CONVERSION;
+
+	WCHAR* w = A2W(cscore);
+
+
+
+	
+	RECT rc = { 10, 200, 500, 500 };
+	font->DrawText(NULL, w, -1, &rc, 0, D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 
 }

@@ -14,7 +14,7 @@ public:
 	LPDIRECT3DTEXTURE9* floorTex;
 	LPDIRECT3DTEXTURE9* maskTex;
 	LPD3DXSPRITE spr;
-
+	ID3DXFont* font;
 
 	Player* player;
 
@@ -23,6 +23,8 @@ public:
 
 	int visitingX;
 	int visitingY;
+
+	int myLand;
 
 
 	DWORD floorP[FLOOR_PIXEL];

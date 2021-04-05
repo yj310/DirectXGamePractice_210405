@@ -38,7 +38,7 @@ Player::~Player()
 }
 
 void Player::Update()
-{
+{ 
 	if (posX < 0)
 		posX = 0;
 	if (posX >= FLOOR_WIDTH)
