@@ -1,6 +1,12 @@
-﻿  title_page.cpp
+﻿  first_game_page.cpp
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\player.h(24,29): warning C4244: '+=': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\player.h(28,27): warning C4458: 'speed' 선언은 클래스 멤버를 숨깁니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\player.h(10,6): message : 'Player::speed' 선언을 참조하십시오.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\first_game_page.cpp(137,12): warning C4002: 함수 같은 매크로 호출 'D3DCOLOR_ARGB'에 대해 인수가 너무 많습니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\first_game_page.cpp(279,13): warning C4244: '초기화 중': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\first_game_page.cpp(280,13): warning C4244: '초기화 중': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다.
-  9 of 1020 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+  5 of 1142 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     11 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.

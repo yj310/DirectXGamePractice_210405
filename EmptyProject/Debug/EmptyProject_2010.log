@@ -1,8 +1,8 @@
 ﻿  first_game_page.cpp
-  intro_page.cpp
-  manual_page.cpp
-  ranking_page.cpp
-  second_game_page.cpp
-  코드를 생성하고 있습니다...
-first_game_page.obj : warning LNK4075: '/EDITANDCONTINUE'이(가) '/SAFESEH' 사양으로 인해 무시됩니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\player.h(24,29): warning C4244: '+=': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\player.h(28,27): warning C4458: 'speed' 선언은 클래스 멤버를 숨깁니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\player.h(10,6): message : 'Player::speed' 선언을 참조하십시오.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\first_game_page.cpp(137,12): warning C4002: 함수 같은 매크로 호출 'D3DCOLOR_ARGB'에 대해 인수가 너무 많습니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\first_game_page.cpp(202,13): warning C4244: '초기화 중': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\first_game_page.cpp(203,13): warning C4244: '초기화 중': 'FLOAT'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   EmptyProject_2010.vcxproj -> D:\2021\2021년도 게임기능대회\Project\DirectXGamePractice_210405\EmptyProject\Debug\EmptyProject.exe
