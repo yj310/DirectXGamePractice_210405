@@ -1,15 +1,17 @@
-//--------------------------------------------------------------------------------------
-// File: EmptyProject.cpp
-//
-// Copyright (c) Microsoft Corporation. All rights reserved.
-//--------------------------------------------------------------------------------------
+
 #include "DXUT.h"
 #include "resource.h"
+#include "global.h"
 
 
-//--------------------------------------------------------------------------------------
-// Rejects any D3D9 devices that aren't acceptable to the app by returning false
-//--------------------------------------------------------------------------------------
+
+
+PageManager pageManager;
+
+
+
+
+
 bool CALLBACK IsD3D9DeviceAcceptable( D3DCAPS9* pCaps, D3DFORMAT AdapterFormat, D3DFORMAT BackBufferFormat,
                                       bool bWindowed, void* pUserContext )
 {
@@ -24,48 +26,37 @@ bool CALLBACK IsD3D9DeviceAcceptable( D3DCAPS9* pCaps, D3DFORMAT AdapterFormat, 
 }
 
 
-//--------------------------------------------------------------------------------------
-// Before a device is created, modify the device settings as needed
-//--------------------------------------------------------------------------------------
 bool CALLBACK ModifyDeviceSettings( DXUTDeviceSettings* pDeviceSettings, void* pUserContext )
 {
     return true;
 }
 
-
-//--------------------------------------------------------------------------------------
-// Create any D3D9 resources that will live through a device reset (D3DPOOL_MANAGED)
-// and aren't tied to the back buffer size
-//--------------------------------------------------------------------------------------
+// init
 HRESULT CALLBACK OnD3D9CreateDevice( IDirect3DDevice9* pd3dDevice, const D3DSURFACE_DESC* pBackBufferSurfaceDesc,
                                      void* pUserContext )
 {
+    pageManager.CreateTitlePage();
+
     return S_OK;
 }
 
 
-//--------------------------------------------------------------------------------------
-// Create any D3D9 resources that won't live through a device reset (D3DPOOL_DEFAULT) 
-// or that are tied to the back buffer size 
-//--------------------------------------------------------------------------------------
 HRESULT CALLBACK OnD3D9ResetDevice( IDirect3DDevice9* pd3dDevice, const D3DSURFACE_DESC* pBackBufferSurfaceDesc,
                                     void* pUserContext )
 {
     return S_OK;
 }
 
-
-//--------------------------------------------------------------------------------------
-// Handle updates to the scene.  This is called regardless of which D3D API is used
-//--------------------------------------------------------------------------------------
+// update
 void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext )
 {
+
+    pageManager.Update();
+
 }
 
 
-//--------------------------------------------------------------------------------------
-// Render the scene using the D3D9 device
-//--------------------------------------------------------------------------------------
+// render
 void CALLBACK OnD3D9FrameRender( IDirect3DDevice9* pd3dDevice, double fTime, float fElapsedTime, void* pUserContext )
 {
     HRESULT hr;
@@ -76,14 +67,18 @@ void CALLBACK OnD3D9FrameRender( IDirect3DDevice9* pd3dDevice, double fTime, flo
     // Render the scene
     if( SUCCEEDED( pd3dDevice->BeginScene() ) )
     {
+
+
+        pageManager.Render();
+
+
+
         V( pd3dDevice->EndScene() );
     }
 }
 
 
-//--------------------------------------------------------------------------------------
-// Handle messages to the application 
-//--------------------------------------------------------------------------------------
+
 LRESULT CALLBACK MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
                           bool* pbNoFurtherProcessing, void* pUserContext )
 {
@@ -91,25 +86,20 @@ LRESULT CALLBACK MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 }
 
 
-//--------------------------------------------------------------------------------------
-// Release D3D9 resources created in the OnD3D9ResetDevice callback 
-//--------------------------------------------------------------------------------------
+
 void CALLBACK OnD3D9LostDevice( void* pUserContext )
 {
 }
 
 
-//--------------------------------------------------------------------------------------
-// Release D3D9 resources created in the OnD3D9CreateDevice callback 
-//--------------------------------------------------------------------------------------
+// end
 void CALLBACK OnD3D9DestroyDevice( void* pUserContext )
 {
+    pageManager.DeleteCurrentPage();
 }
 
 
-//--------------------------------------------------------------------------------------
-// Initialize everything and go into a render loop
-//--------------------------------------------------------------------------------------
+
 INT WINAPI wWinMain( HINSTANCE, HINSTANCE, LPWSTR, int )
 {
     // Enable run-time memory check for debug builds.
@@ -134,8 +124,8 @@ INT WINAPI wWinMain( HINSTANCE, HINSTANCE, LPWSTR, int )
     DXUTInit( true, true ); // Parse the command line and show msgboxes
     DXUTSetHotkeyHandling( true, true, true );  // handle the default hotkeys
     DXUTSetCursorSettings( true, true ); // Show the cursor and clip it when in full screen
-    DXUTCreateWindow( L"EmptyProject" );
-    DXUTCreateDevice( true, 640, 480 );
+    DXUTCreateWindow( L"ToxExt" );
+    DXUTCreateDevice( true, WINDOW_WIDTH, WINDOW_HEIGHT);
 
     // Start the render loop
     DXUTMainLoop();
