@@ -36,7 +36,6 @@ HRESULT CALLBACK OnD3D9CreateDevice( IDirect3DDevice9* pd3dDevice, const D3DSURF
                                      void* pUserContext )
 {
     pageManager.CreateTitlePage();
-
     return S_OK;
 }
 

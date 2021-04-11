@@ -12,6 +12,7 @@ public:
 	LPD3DXSPRITE spr;
 
 
+
 	void Update() override;
 	void Render() override;
 

@@ -396,9 +396,9 @@ void FirstGamePage::Render()
 	player->Render();
 
 	char text[] = "가나다라마";
-	float score = 100.512025845;
+	int score = myLand;
 	char cscore[256];
-	sprintf(cscore, "%.1f", score);
+	sprintf(cscore, "%d", score);
 
 	USES_CONVERSION;
 
